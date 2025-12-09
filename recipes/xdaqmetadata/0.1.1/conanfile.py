@@ -1,6 +1,5 @@
 from pathlib import Path
 from conan import ConanFile
-from conan.tools.gnu import PkgConfig
 from conan.tools.files import get, copy
 
 
@@ -33,7 +32,3 @@ class xdaqmetadata(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = ["xdaqmetadata"]
-        pkg_config = PkgConfig(self, "gstreamer-codecparsers-1.0")
-        self.cpp_info.includedirs.extend(pkg_config.includedirs)
-        self.cpp_info.libdirs.extend(pkg_config.libdirs)
-        self.cpp_info.libs.extend(pkg_config.libs)
