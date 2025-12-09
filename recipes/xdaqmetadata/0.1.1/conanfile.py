@@ -25,8 +25,10 @@ class xdaqmetadata(ConanFile):
         get(self, url, strip_root=True)
 
     def package(self):
+        local_bin_folder = Path(self.build_folder, "bin")
         local_include_folder = Path(self.build_folder, "include")
         local_lib_folder = Path(self.build_folder, "lib")
+        copy(self, "*", local_bin_folder, Path(self.package_folder, "bin"))
         copy(self, "*", local_include_folder, Path(self.package_folder, "include"))
         copy(self, "*", local_lib_folder, Path(self.package_folder, "lib"))
 
