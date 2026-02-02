@@ -14,7 +14,7 @@ class libxdaqnp(ConanFile):
 
     def requirements(self):
         self.requires("fmt/10.2.1")
-        self.requires("libxdaq/0.5.2")
+        self.requires("libxdaq/0.6.0")
         self.requires("spdlog/1.13.0")
 
     def configure(self):
