@@ -38,19 +38,20 @@ class libxdaq(ConanFile):
 
     def package_info(self):
         self.cpp_info.set_property("cmake_file_name", "xdaq")
-        self.cpp_info.set_property("cmake_target_name", "xdaq::xdaq_device")
+        self.cpp_info.set_property("cmake_target_name", "xdaq::xdaq")
         self.cpp_info.set_property("cmake_build_modules", ["lib/cmake/xdaq/xdaq-variables.cmake"])
-        
+
         self.cpp_info.components["xdaq_device"].set_property("cmake_target_name", "xdaq::xdaq_device")
         self.cpp_info.components["xdaq_device"].libs = ["xdaq_device"]
         self.cpp_info.components["xdaq_device"].includedirs = ["include", "include/xdaq", "include/xdaq/third_party"]
         self.cpp_info.components["xdaq_device"].libdirs = ["lib/xdaq", "lib/xdaq/devices"]
+        self.cpp_info.components["xdaq_device"].bindirs = ["bin"]
         self.cpp_info.components["xdaq_device"].builddirs.append(str(Path("lib", "cmake", "xdaq")))
 
-        # Export device managers as separate components
         managers = ["thor_device_manager", "ok_device_manager"]
         for manager in managers:
             self.cpp_info.components[manager].set_property("cmake_target_name", f"xdaq::{manager}")
             self.cpp_info.components[manager].libs = [manager]
             self.cpp_info.components[manager].libdirs = ["lib/xdaq/managers"]
+            self.cpp_info.components[manager].bindirs = ["bin", "lib/xdaq/managers"]
             self.cpp_info.components[manager].requires = ["xdaq_device"]
