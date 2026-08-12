@@ -16,7 +16,7 @@ class xdaqmetadata(ConanFile):
         self.requires("spdlog/1.13.0")
 
     def build(self):
-        base_url = "https://xdaq.sgp1.digitaloceanspaces.com/xdaqmetadata"
+        base_url = "https://dl-conan.kontex.io/xdaqmetadata"
 
         _os = str(self.settings.os).lower()
         _arch = str(self.settings.arch).lower()
