@@ -21,3 +21,5 @@ versions:
     folder: 0.10.3
   "0.10.4":
     folder: 0.10.4
+  "0.10.5":
+    folder: 0.10.5
