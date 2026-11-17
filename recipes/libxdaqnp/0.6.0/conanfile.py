@@ -21,7 +21,7 @@ class libxdaqnp(ConanFile):
         pass
 
     def build(self):
-        base_url = "https://xdaq.sgp1.cdn.digitaloceanspaces.com/xdaq_npapi"
+        base_url = "https://dl-conan.kontex.io/xdaq_npapi"
 
         _os = str(self.settings.os).lower()
         _arch = str(self.settings.arch).lower()

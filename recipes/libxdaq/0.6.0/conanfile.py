@@ -20,7 +20,7 @@ class libxdaq(ConanFile):
         pass
 
     def build(self):
-        base_url = "https://xdaq.sgp1.cdn.digitaloceanspaces.com/libxdaq"
+        base_url = "https://dl-conan.kontex.io/libxdaq"
 
         _os = str(self.settings.os).lower()
         _arch = str(self.settings.arch).lower()
