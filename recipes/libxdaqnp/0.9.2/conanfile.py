@@ -17,7 +17,7 @@ class libxdaqnp(ConanFile):
         # transitive_headers=True: consumers get xdaq's CMakeDeps config,
         # required for find_dependency(xdaq) in libxdaqnp-config.cmake and
         # because xdaq_device is a PUBLIC link dep of xdaq_npapi.
-        self.requires("libxdaq/0.10.2", transitive_headers=True)
+        self.requires("libxdaq/0.10.3", transitive_headers=True)
         self.requires("spdlog/1.13.0")
 
     def configure(self):
